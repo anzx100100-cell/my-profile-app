@@ -1,6 +1,6 @@
 import streamlit as sl
 from streamlit-gsheets import GSheetsConnection
-conn=st.connection("gsheets",type=GSheetsConnection)
+conn=sl.connection("gsheets",type=GSheetsConnection)
 with sl.form("your profile"):
     name=sl.text_input("what is your name")
     age=sl.number_input("Age",min_value=1 ,max_value=120,value=16)
@@ -19,8 +19,8 @@ if submitted:
     new_entry={
         "name":[name],
         "age":[age],"bio":[bio]}
-    updated_df=existing_date._append(new_entry,ignore_index=True) if not existing_date.epmty else new_entry
-    conn.update(date=updated_df)
+    updated_df=existing_date._append(new_entry,ignore_index=True) if not existing_date.empty else new_entry
+    conn.update(data=updated_df)
  if "profile" in sl.session_state:
     sl.divider()
     sl.subheader(f"profile card :{sl.session_state.profile["name"]}")
