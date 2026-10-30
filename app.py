@@ -20,7 +20,7 @@ if submitted:
         "name":[name],
         "age":[age],"bio":[bio]}
     updated_df=existing_data._append(new_entry,ignore_index=True) if not existing_data.empty else new_entry
-    conn.update(worksheet="الورقة1",data=updated_df)
+    conn.update(worksheet="اsheet1",data=updated_df)
 if "profile" in sl.session_state:
     sl.divider()
     sl.subheader(f"profile card :{sl.session_state.profile["name"]}")
