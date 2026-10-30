@@ -15,10 +15,12 @@ if submitted:
     }
     sl.success("profile saves successfully")
     sl.balloons()
+    existing_data=conn.read(ttl=0)
     new_entry={
         "name":[name],
         "age":[age],"bio":[bio]}
     updated_df=existing_date._append(new_entry,ignore_index=True) if not existing_date.epmty else new_entry
+    conn.update(date=updated_df)
  if "profile" in sl.session_state:
     sl.divider()
     sl.subheader(f"profile card :{sl.session_state.profile["name"]}")
