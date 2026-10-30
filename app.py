@@ -1,5 +1,5 @@
 import streamlit as sl
-from streamlit-gsheets import GSheetsConnection
+from streamlit_gsheets import GSheetsConnection
 conn=sl.connection("gsheets",type=GSheetsConnection)
 with sl.form("your profile"):
     name=sl.text_input("what is your name")
