@@ -1,5 +1,4 @@
 import streamlit as sl
-conn=sl.connection("gsheets",type=GSheetsConnection)
 with sl.form("your profile"):
     name=sl.text_input("what is your name")
     age=sl.number_input("Age",min_value=1 ,max_value=120,value=16)
