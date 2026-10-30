@@ -19,7 +19,7 @@ if submitted:
     new_entry={
         "name":[name],
         "age":[age],"bio":[bio]}
-    updated_df=existing_date._append(new_entry,ignore_index=True) if not existing_date.empty else new_entry
+    updated_df=existing_data._append(new_entry,ignore_index=True) if not existing_data.empty else new_entry
     conn.update(data=updated_df)
  if "profile" in sl.session_state:
     sl.divider()
