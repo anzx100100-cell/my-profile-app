@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as sl
 from streamlit_gsheets import GSheetsConnection
 conn=sl.connection("gsheets",type=GSheetsConnection)
@@ -19,7 +20,8 @@ if submitted:
     new_entry={
         "name":[name],
         "age":[age],"bio":[bio]}
-    updated_df=existing_data._append(new_entry,ignore_index=True) if not existing_data.empty else new_entry
+    new_df=pd.DataFrame(new_entry)
+    updated_df=pd.concat([existing_data,new_df],ignore_index=True) if not existing_data.empty else new_df
     conn.update(spreadsheet="https://docs.google.com/spreadsheets/d/19ZlE_OhH57PgoH5j_4eJ6-QWxxh7JRKB6ea8F_47gAk/edit?gid=0#gid=0",worksheet="اsheet1",data=updated_df)
 if "profile" in sl.session_state:
     sl.divider()
